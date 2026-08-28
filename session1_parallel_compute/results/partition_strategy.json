@@ -205,7 +205,7 @@
     "rows_after": 173912,
     "delta": 0,
     "columns_after": 15,
-    "join_seconds": 0.1264,
+    "join_seconds": 0.1053,
     "join_path": "assessments |> customers_dim |> assessment_defs |> entitlements_dim"
   }
 }

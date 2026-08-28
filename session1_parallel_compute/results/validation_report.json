@@ -10,7 +10,7 @@
   "aggregation": {
     "partitions": 4,
     "groups": 13,
-    "seconds": 1.3464
+    "seconds": 1.3629
   },
   "validation": {
     "parallel_groups": 13,
