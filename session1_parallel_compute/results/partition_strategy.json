@@ -1,0 +1,211 @@
+{
+  "chosen_key": "region",
+  "owned_by": "customers",
+  "join_survival": {
+    "key": "region",
+    "present_after_join": true,
+    "entered_from": "customers",
+    "nulls_after_join": 0,
+    "verdict": "survives the join intact"
+  },
+  "prediction": {
+    "distinct": 13,
+    "min": 7341,
+    "median": 13049,
+    "max": 18263,
+    "skew_ratio": 2.49
+  },
+  "rejected_alternative": {
+    "column": "id_student",
+    "source_file": "assessments + customers + entitlements",
+    "distinct": 23369,
+    "min": 1,
+    "median": 7,
+    "max": 28,
+    "skew_ratio": 28.0,
+    "viable": false,
+    "rejected_because": "identifier or measure, not a grouping attribute"
+  },
+  "all_candidates": [
+    {
+      "column": "id_assessment",
+      "source_file": "assessments + assessment_configs",
+      "distinct": 188,
+      "min": 278,
+      "median": 909,
+      "max": 1917,
+      "skew_ratio": 6.9,
+      "viable": false,
+      "rejected_because": "identifier or measure, not a grouping attribute"
+    },
+    {
+      "column": "id_student",
+      "source_file": "assessments + customers + entitlements",
+      "distinct": 23369,
+      "min": 1,
+      "median": 7,
+      "max": 28,
+      "skew_ratio": 28.0,
+      "viable": false,
+      "rejected_because": "identifier or measure, not a grouping attribute"
+    },
+    {
+      "column": "date_submitted",
+      "source_file": "assessments",
+      "distinct": 312,
+      "min": 1,
+      "median": 350,
+      "max": 2747,
+      "skew_ratio": 2747.0,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "is_banked",
+      "source_file": "assessments",
+      "distinct": 2,
+      "min": 1909,
+      "median": 86956,
+      "max": 172003,
+      "skew_ratio": 90.1,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "score",
+      "source_file": "assessments",
+      "distinct": 101,
+      "min": 12,
+      "median": 850,
+      "max": 18813,
+      "skew_ratio": 1567.75,
+      "viable": false,
+      "rejected_because": "identifier or measure, not a grouping attribute"
+    },
+    {
+      "column": "gender",
+      "source_file": "customers",
+      "distinct": 2,
+      "min": 80041,
+      "median": 86956,
+      "max": 93871,
+      "skew_ratio": 1.17,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "region",
+      "source_file": "customers",
+      "distinct": 13,
+      "min": 7341,
+      "median": 13049,
+      "max": 18263,
+      "skew_ratio": 2.49,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "highest_education",
+      "source_file": "customers",
+      "distinct": 5,
+      "min": 1399,
+      "median": 27482,
+      "max": 79790,
+      "skew_ratio": 57.03,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "imd_band",
+      "source_file": "customers",
+      "distinct": 10,
+      "min": 15139,
+      "median": 16529,
+      "max": 19198,
+      "skew_ratio": 1.27,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "disability",
+      "source_file": "customers",
+      "distinct": 2,
+      "min": 15186,
+      "median": 86956,
+      "max": 158726,
+      "skew_ratio": 10.45,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "assessment_type",
+      "source_file": "assessment_configs",
+      "distinct": 3,
+      "min": 4959,
+      "median": 70527,
+      "max": 98426,
+      "skew_ratio": 19.85,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "date",
+      "source_file": "assessment_configs",
+      "distinct": 72,
+      "min": 518,
+      "median": 1406,
+      "max": 9744,
+      "skew_ratio": 18.81,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "weight",
+      "source_file": "assessment_configs",
+      "distinct": 24,
+      "min": 518,
+      "median": 4106,
+      "max": 46987,
+      "skew_ratio": 90.71,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "date_registration",
+      "source_file": "entitlements",
+      "distinct": 298,
+      "min": 2,
+      "median": 178,
+      "max": 5875,
+      "skew_ratio": 2937.5,
+      "viable": true,
+      "rejected_because": ""
+    },
+    {
+      "column": "date_unregistration",
+      "source_file": "entitlements",
+      "distinct": 332,
+      "min": 1,
+      "median": 34,
+      "max": 424,
+      "skew_ratio": 424.0,
+      "viable": true,
+      "rejected_because": ""
+    }
+  ],
+  "workload": "Compute submission count, total score, and mean score per region across the joined 173,912-row dataset.",
+  "output_schema": {
+    "region": "string",
+    "txn_count": "int64",
+    "score_total": "double",
+    "score_mean": "double"
+  },
+  "join": {
+    "rows_before": 173912,
+    "rows_after": 173912,
+    "delta": 0,
+    "columns_after": 15,
+    "join_seconds": 0.1264,
+    "join_path": "assessments |> customers_dim |> assessment_defs |> entitlements_dim"
+  }
+}

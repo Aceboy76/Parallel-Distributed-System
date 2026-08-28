@@ -1,0 +1,37 @@
+{
+  "customers_dim": {
+    "source_rows": 32593,
+    "output_rows": 28785,
+    "distinct_id_student": 28785,
+    "dedup_rule": "first row per id_student, sorted by code_presentation",
+    "fields_dropped_as_unstable_across_presentations": [
+      "age_band"
+    ],
+    "fields_confirmed_stable": [
+      "gender",
+      "region",
+      "highest_education",
+      "imd_band",
+      "disability"
+    ]
+  },
+  "entitlements_dim": {
+    "source_rows": 32593,
+    "output_rows": 28785,
+    "distinct_id_student": 28785,
+    "dedup_rule": "first row per id_student, sorted by code_presentation",
+    "fields_that_vary_by_presentation": [
+      "date_registration",
+      "date_unregistration"
+    ],
+    "limitation": "date_registration/date_unregistration reflect only the student's FIRST module presentation. A student's later registrations are not represented in this Entity file."
+  },
+  "assessment_defs": {
+    "source_rows": 206,
+    "output_rows": 206,
+    "id_assessment_is_unique": true,
+    "dedup_rule": "none required; already one row per id_assessment"
+  },
+  "same_student_population": true,
+  "note": "studentAssessment.csv is used as-is for the Event role; it is already one row per submission and needs no preparation."
+}

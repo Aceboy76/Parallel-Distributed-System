@@ -1,0 +1,175 @@
+{
+  "profiles": {
+    "assessments": {
+      "file": "studentAssessment.csv",
+      "role": "Event",
+      "rows": 173912,
+      "columns": 5,
+      "column_names": [
+        "id_assessment",
+        "id_student",
+        "date_submitted",
+        "is_banked",
+        "score"
+      ],
+      "size_kb": 5556.9,
+      "candidate_primary_keys": [],
+      "constant_columns": [],
+      "null_counts": {
+        "id_assessment": 0,
+        "id_student": 0,
+        "date_submitted": 0,
+        "is_banked": 0,
+        "score": 173
+      },
+      "distinct_counts": {
+        "id_assessment": 188,
+        "id_student": 23369,
+        "date_submitted": 312,
+        "is_banked": 2,
+        "score": 101
+      }
+    },
+    "customers": {
+      "file": "customers_dim.csv",
+      "role": "Entity",
+      "rows": 28785,
+      "columns": 6,
+      "column_names": [
+        "id_student",
+        "gender",
+        "region",
+        "highest_education",
+        "imd_band",
+        "disability"
+      ],
+      "size_kb": 1530.6,
+      "candidate_primary_keys": [
+        "id_student"
+      ],
+      "constant_columns": [],
+      "null_counts": {
+        "id_student": 0,
+        "gender": 0,
+        "region": 0,
+        "highest_education": 0,
+        "imd_band": 971,
+        "disability": 0
+      },
+      "distinct_counts": {
+        "id_student": 28785,
+        "gender": 2,
+        "region": 13,
+        "highest_education": 5,
+        "imd_band": 10,
+        "disability": 2
+      }
+    },
+    "entitlements": {
+      "file": "entitlements_dim.csv",
+      "role": "Entity",
+      "rows": 28785,
+      "columns": 3,
+      "column_names": [
+        "id_student",
+        "date_registration",
+        "date_unregistration"
+      ],
+      "size_kb": 466.7,
+      "candidate_primary_keys": [
+        "id_student"
+      ],
+      "constant_columns": [],
+      "null_counts": {
+        "id_student": 0,
+        "date_registration": 37,
+        "date_unregistration": 20250
+      },
+      "distinct_counts": {
+        "id_student": 28785,
+        "date_registration": 317,
+        "date_unregistration": 403
+      }
+    },
+    "assessment_configs": {
+      "file": "assessment_defs.csv",
+      "role": "Lookup",
+      "rows": 206,
+      "columns": 4,
+      "column_names": [
+        "id_assessment",
+        "assessment_type",
+        "date",
+        "weight"
+      ],
+      "size_kb": 4.3,
+      "candidate_primary_keys": [
+        "id_assessment"
+      ],
+      "constant_columns": [],
+      "null_counts": {
+        "id_assessment": 0,
+        "assessment_type": 0,
+        "date": 11,
+        "weight": 0
+      },
+      "distinct_counts": {
+        "id_assessment": 206,
+        "assessment_type": 3,
+        "date": 74,
+        "weight": 24
+      }
+    }
+  },
+  "integrity": {
+    "foreign_keys_resolve": {
+      "assessments.id_student -> customers_dim.id_student": true,
+      "assessments.id_assessment -> assessment_defs.id_assessment": true,
+      "entitlements_dim.id_student -> customers_dim.id_student": true
+    },
+    "orphan_counts": {
+      "assessments_without_customer": 0,
+      "assessments_without_assessment_def": 0
+    }
+  },
+  "eligibility": {
+    "condition_1_three_related_files": {
+      "met": true,
+      "qualifying_files": [
+        "assessments",
+        "customers",
+        "entitlements"
+      ],
+      "lookup_files_excluded": [
+        "assessment_configs"
+      ]
+    },
+    "condition_2_one_to_many": {
+      "met": true,
+      "associations": [
+        {
+          "parent": "customers",
+          "child": "assessments",
+          "key": "id_student",
+          "children_min": 1,
+          "children_median": 7,
+          "children_max": 28
+        }
+      ],
+      "entitlements_is_one_to_one": true
+    },
+    "condition_3_timestamp": {
+      "met": true,
+      "field": "assessments.date_submitted",
+      "field_type": "integer day-offset from module start (not a calendar timestamp)",
+      "min": -11,
+      "max": 608,
+      "span_days": 619,
+      "note": "Negative values occur - a small number of assessments are submitted before the module's official start day (banked or early submissions)."
+    },
+    "condition_4_volume": {
+      "met": true,
+      "event_rows": 173912
+    }
+  }
+}

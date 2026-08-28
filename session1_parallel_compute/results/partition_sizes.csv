@@ -1,0 +1,28 @@
+level,setting,identifier,record_count,even_share,vs_even
+spark_partition,2,partition_0,112367,86956.0,1.292
+spark_partition,2,partition_1,61545,86956.0,0.708
+spark_partition,4,partition_0,37914,43478.0,0.872
+spark_partition,4,partition_1,35941,43478.0,0.827
+spark_partition,4,partition_2,74453,43478.0,1.712
+spark_partition,4,partition_3,25604,43478.0,0.589
+spark_partition,8,partition_0,26684,21739.0,1.227
+spark_partition,8,partition_1,25703,21739.0,1.182
+spark_partition,8,partition_2,30396,21739.0,1.398
+spark_partition,8,partition_3,18263,21739.0,0.84
+spark_partition,8,partition_4,11230,21739.0,0.517
+spark_partition,8,partition_5,10238,21739.0,0.471
+spark_partition,8,partition_6,44057,21739.0,2.027
+spark_partition,8,partition_7,7341,21739.0,0.338
+partition_key,region,East Anglian Region,18263,13377.8,1.365
+partition_key,region,Scotland,18022,13377.8,1.347
+partition_key,region,South Region,17577,13377.8,1.314
+partition_key,region,London Region,16367,13377.8,1.223
+partition_key,region,North Western Region,13910,13377.8,1.04
+partition_key,region,South West Region,13431,13377.8,1.004
+partition_key,region,West Midlands Region,13049,13377.8,0.975
+partition_key,region,East Midlands Region,12374,13377.8,0.925
+partition_key,region,South East Region,11793,13377.8,0.882
+partition_key,region,Wales,11230,13377.8,0.839
+partition_key,region,Yorkshire Region,10317,13377.8,0.771
+partition_key,region,North Region,10238,13377.8,0.765
+partition_key,region,Ireland,7341,13377.8,0.549
