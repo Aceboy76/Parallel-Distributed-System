@@ -1,0 +1,10 @@
+message,fields,json_bytes,protobuf_bytes,saved,reduction_pct
+ChargeRequest,5,107,30,77,72.0
+ChargeResult,4,95,42,53,55.8
+Customer,5,96,18,78,81.2
+MonetizationConfig,6,210,144,66,31.4
+Entitlement,3,71,4,67,94.4
+Transaction,6,122,40,82,67.2
+RegionRevenue,4,83,34,49,59.0
+RegionalRevenueReport,3,184,117,67,36.4
+CustomerBatch,1,565,500,65,11.5

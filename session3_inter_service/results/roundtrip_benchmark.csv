@@ -1,0 +1,3 @@
+codec,rows,batched_calls,batched_ms,single_calls,single_ms,speedup,round_trips_saved
+json,41,1,54.688,41,285.961,5.2x,40
+proto,41,1,28.962,41,258.993,8.9x,40

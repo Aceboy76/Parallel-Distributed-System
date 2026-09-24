@@ -1,0 +1,3 @@
+codec,rows,unary_total_ms,stream_total_ms,first_message_ms,earlier_by
+json,5000,46.546,43.626,0.017,2787.2x
+proto,5000,116.316,120.102,0.029,4067.0x

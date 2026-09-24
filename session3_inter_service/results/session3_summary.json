@@ -1,0 +1,140 @@
+{
+  "contract": {
+    "messages": 20,
+    "fields": 52,
+    "services": {
+      "ChargeService": [
+        {
+          "method": "Charge",
+          "request": "ChargeRequest",
+          "response": "ChargeResult",
+          "kind": "unary"
+        }
+      ],
+      "ConfigService": [
+        {
+          "method": "GetConfig",
+          "request": "ConfigRequest",
+          "response": "MonetizationConfig",
+          "kind": "unary"
+        },
+        {
+          "method": "ListConfigs",
+          "request": "Empty",
+          "response": "ConfigList",
+          "kind": "unary"
+        }
+      ],
+      "CustomerService": [
+        {
+          "method": "BatchGetCustomers",
+          "request": "CustomerBatchRequest",
+          "response": "CustomerBatch",
+          "kind": "unary"
+        },
+        {
+          "method": "GetCustomer",
+          "request": "CustomerRequest",
+          "response": "Customer",
+          "kind": "unary"
+        }
+      ],
+      "EntitlementService": [
+        {
+          "method": "GetEntitlement",
+          "request": "EntitlementRequest",
+          "response": "Entitlement",
+          "kind": "unary"
+        }
+      ],
+      "RevenueService": [
+        {
+          "method": "ComputeRegionalRevenue",
+          "request": "RevenueQuery",
+          "response": "RegionalRevenueReport",
+          "kind": "unary"
+        },
+        {
+          "method": "StreamRegionalRevenue",
+          "request": "RevenueQuery",
+          "response": "RegionRevenue",
+          "kind": "server-streaming"
+        }
+      ],
+      "TransactionService": [
+        {
+          "method": "CountTransactions",
+          "request": "Empty",
+          "response": "Count",
+          "kind": "unary"
+        },
+        {
+          "method": "ListTransactions",
+          "request": "TransactionQuery",
+          "response": "TransactionList",
+          "kind": "unary"
+        },
+        {
+          "method": "StreamTransactions",
+          "request": "TransactionQuery",
+          "response": "Transaction",
+          "kind": "server-streaming"
+        }
+      ]
+    },
+    "methods": 11,
+    "streaming_methods": 2,
+    "contracts_in_sync": true,
+    "verify_against_proto": {
+      "ok": true,
+      "reason": "match"
+    }
+  },
+  "reconciliation": {
+    "passed": false,
+    "regions": 13,
+    "transactions_db": 173912,
+    "transactions_session1": 173739,
+    "transactions_session2": 173739,
+    "max_count_difference": 173,
+    "aggregate_db": 13169342.0,
+    "aggregate_session1": 13169342.0,
+    "aggregate_session2": 13169342.0,
+    "aggregate_difference": 0.0,
+    "max_revenue_total_difference": 0.0,
+    "tolerance": 1e-06,
+    "metric": "score as revenue reconciliation proxy",
+    "composition": "RevenueService -> TransactionService + CustomerService",
+    "mechanism_breakdown": [
+      {
+        "mechanism": "Early intervention / outcome pending",
+        "events": 155,
+        "revenue_proxy": 0.0
+      },
+      {
+        "mechanism": "Resit / repeat revenue",
+        "events": 7248,
+        "revenue_proxy": 172645.0
+      },
+      {
+        "mechanism": "Revenue at risk / lost",
+        "events": 4226,
+        "revenue_proxy": 298328.0
+      },
+      {
+        "mechanism": "Revenue secured + upsell next module",
+        "events": 86028,
+        "revenue_proxy": 7739959.0
+      },
+      {
+        "mechanism": "Revenue secured / continuation revenue",
+        "events": 76255,
+        "revenue_proxy": 4958410.0
+      }
+    ],
+    "actual_oulad_monetization": {
+      "events": 32593,
+      "revenue_total": 24956887.5
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "services": 6,
+  "host": "127.0.0.1:53210",
+  "grpc_host": "127.0.0.1:53211",
+  "sample_rows": 1,
+  "transactions": 173912,
+  "transport_options": [
+    "in-process",
+    "http/json",
+    "http/proto",
+    "grpc/proto"
+  ],
+  "server_started": true
+}

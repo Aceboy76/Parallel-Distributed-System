@@ -1,0 +1,91 @@
+{
+  "messages": 20,
+  "fields": 52,
+  "services": {
+    "ChargeService": [
+      {
+        "method": "Charge",
+        "request": "ChargeRequest",
+        "response": "ChargeResult",
+        "kind": "unary"
+      }
+    ],
+    "ConfigService": [
+      {
+        "method": "GetConfig",
+        "request": "ConfigRequest",
+        "response": "MonetizationConfig",
+        "kind": "unary"
+      },
+      {
+        "method": "ListConfigs",
+        "request": "Empty",
+        "response": "ConfigList",
+        "kind": "unary"
+      }
+    ],
+    "CustomerService": [
+      {
+        "method": "BatchGetCustomers",
+        "request": "CustomerBatchRequest",
+        "response": "CustomerBatch",
+        "kind": "unary"
+      },
+      {
+        "method": "GetCustomer",
+        "request": "CustomerRequest",
+        "response": "Customer",
+        "kind": "unary"
+      }
+    ],
+    "EntitlementService": [
+      {
+        "method": "GetEntitlement",
+        "request": "EntitlementRequest",
+        "response": "Entitlement",
+        "kind": "unary"
+      }
+    ],
+    "RevenueService": [
+      {
+        "method": "ComputeRegionalRevenue",
+        "request": "RevenueQuery",
+        "response": "RegionalRevenueReport",
+        "kind": "unary"
+      },
+      {
+        "method": "StreamRegionalRevenue",
+        "request": "RevenueQuery",
+        "response": "RegionRevenue",
+        "kind": "server-streaming"
+      }
+    ],
+    "TransactionService": [
+      {
+        "method": "CountTransactions",
+        "request": "Empty",
+        "response": "Count",
+        "kind": "unary"
+      },
+      {
+        "method": "ListTransactions",
+        "request": "TransactionQuery",
+        "response": "TransactionList",
+        "kind": "unary"
+      },
+      {
+        "method": "StreamTransactions",
+        "request": "TransactionQuery",
+        "response": "Transaction",
+        "kind": "server-streaming"
+      }
+    ]
+  },
+  "methods": 11,
+  "streaming_methods": 2,
+  "contracts_in_sync": true,
+  "verify_against_proto": {
+    "ok": true,
+    "reason": "match"
+  }
+}

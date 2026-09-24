@@ -1,0 +1,3 @@
+provider,protocol,calls,ms_call,bytes_sent_received,bytes_call,status,amount
+stripe-rest,REST / JSON,50,0.000,10500,210,succeeded,63.00
+adyen-grpc,gRPC / protobuf,50,0.000,3900,78,succeeded,63.00
